@@ -59,10 +59,4 @@ install(TARGETS Json
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION include)
 install(EXPORT Json-config DESTINATION cmake)
 
-if(BUILD_COVERAGE)
-  set(ENABLE_TESTS ON CACHE BOOL "Enable coverage build." FORCE)
-  list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-  find_package(codecov)
-  add_coverage(parser)
-  coverage_evaluate()
-endif()
+
