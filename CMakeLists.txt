@@ -33,9 +33,6 @@ find_package(nlohmann_json CONFIG REQUIRED)
 add_library(Json STATIC
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/Json.cpp )
 
-add_executable(test
-  ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp)
-
 add_executable(parser
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/source.cpp)
 
@@ -49,11 +46,9 @@ target_include_directories(Json PUBLIC
 
 
 target_link_libraries(parser Json nlohmann_json::nlohmann_json) 
-target_link_libraries(tests Json GTest::main)
 target_link_libraries(main nlohmann_json::nlohmann_json)
 
-enable_testing()
-add_test(NAME unit_tests COMMAND tests) 
+
 
 install(TARGETS Json
     EXPORT Json-config
@@ -69,7 +64,5 @@ if(BUILD_COVERAGE)
   list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
   find_package(codecov)
   add_coverage(parser)
-  add_coverage(tests)
-  list(APPEND LCOV_REMOVE_PATTERNS "'${PROJECT_SOURCE_DIR}/tests/*'")
   coverage_evaluate()
 endif()
