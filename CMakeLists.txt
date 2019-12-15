@@ -52,8 +52,6 @@ target_link_libraries(parser Json nlohmann_json::nlohmann_json)
 target_link_libraries(tests Json GTest::main)
 target_link_libraries(main nlohmann_json::nlohmann_json)
 
-enable_testing()
-add_test(NAME unit_tests COMMAND tests) 
 
 install(TARGETS Json
     EXPORT Json-config
@@ -64,12 +62,3 @@ install(TARGETS Json
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION include)
 install(EXPORT Json-config DESTINATION cmake)
 
-if(BUILD_COVERAGE)
-  set(ENABLE_TESTS ON CACHE BOOL "Enable coverage build." FORCE)
-  list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-  find_package(codecov)
-  add_coverage(parser)
-  add_coverage(tests)
-  list(APPEND LCOV_REMOVE_PATTERNS "'${PROJECT_SOURCE_DIR}/tests/*'")
-  coverage_evaluate()
-endif()
