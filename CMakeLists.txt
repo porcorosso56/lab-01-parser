@@ -33,7 +33,7 @@ find_package(nlohmann_json CONFIG REQUIRED)
 add_library(Json STATIC
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/Json.cpp )
 
-add_executable(tests
+add_executable(test
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp)
 
 add_executable(parser
