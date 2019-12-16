@@ -8,7 +8,9 @@ using namespace std;
 using json = nlohmann::json;
 
 int main() {
-    ifstream in("file.json");
+    const std::string path1 = "file.json";
+    const std::string path2 = "file2.json";
+    ifstream in(path1);
     json obj = json::parse(in);
     in.close();
     auto arr1 = obj[0];
@@ -23,7 +25,7 @@ int main() {
     }
     o << "]\n";
     o.close();
-    ifstream in1("file2.json");
+    ifstream in1(path2);
     json new_obj;
     in1 >> new_obj;
     in1.close();
