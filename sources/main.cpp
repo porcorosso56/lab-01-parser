@@ -17,7 +17,7 @@ int main() {
 	    auto arr1 = obj[0];
 	    auto arr2 = obj[1];
 	    auto arr3 = obj[2];
-	    std::ofstream o("file2.json");
+	    std::ofstream o(path2);
 	    o << "[\n";
 	    for(int i = 0; i < 3; i++) {
 		o << "    "  << "{ \"ticker\" : " << arr1[i] << ", \"id\": " << arr2[i] <<", \"description\": " << arr3[i] << "}";
@@ -25,6 +25,7 @@ int main() {
 		o << "\n";
 	    }
 	    o << "]\n";
+	    o.close();
 	    ifstream in1(path2);
 	    json new_obj;
 	    in1 >> new_obj;
