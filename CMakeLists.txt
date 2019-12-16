@@ -30,12 +30,6 @@ hunter_add_package(nlohmann_json)
 find_package(GTest CONFIG REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
 
-add_library(Json STATIC
-  ${CMAKE_CURRENT_SOURCE_DIR}/sources/Json.cpp )
-
-add_executable(parser
-  ${CMAKE_CURRENT_SOURCE_DIR}/sources/source.cpp)
-
 add_executable(main 
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/main.cpp)
 
