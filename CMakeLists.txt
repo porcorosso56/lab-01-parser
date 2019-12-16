@@ -35,11 +35,6 @@ add_executable(main
 
 target_link_libraries(main nlohmann_json::nlohmann_json)
 
-install(TARGETS Json
-    EXPORT Json-config
-    ARCHIVE DESTINATION lib
-    LIBRARY DESTINATION lib
-)
 
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION include)
 install(EXPORT Json-config DESTINATION cmake)
