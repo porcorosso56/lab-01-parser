@@ -33,16 +33,7 @@ find_package(nlohmann_json CONFIG REQUIRED)
 add_executable(main 
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/main.cpp)
 
-target_include_directories(Json PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>
- )
-
-
-target_link_libraries(parser Json nlohmann_json::nlohmann_json) 
 target_link_libraries(main nlohmann_json::nlohmann_json)
-
-
 
 install(TARGETS Json
     EXPORT Json-config
