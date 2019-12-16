@@ -12,7 +12,6 @@ int main() {
     const std::string path2 = "file2.json";
     ifstream in(path1);
     json obj = json::parse(in);
-    in.close();
     if (obj.size() == 3)
     {
 	    auto arr1 = obj[0];
@@ -26,11 +25,9 @@ int main() {
 		o << "\n";
 	    }
 	    o << "]\n";
-	    o.close();
 	    ifstream in1(path2);
 	    json new_obj;
 	    in1 >> new_obj;
-	    in1.close();
 	    cout << new_obj.dump(5);
 	    return 0;
     }
